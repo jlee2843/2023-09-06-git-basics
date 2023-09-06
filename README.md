@@ -7,3 +7,5 @@
 
 - `add <FILE(S)`: add the files into the staging area. 
 - `commit`: commit (i.e., snapshot) the files from the staging area.
+
+- Let's make a change!
