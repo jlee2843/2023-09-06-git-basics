@@ -18,7 +18,3 @@
       - `diff --staged`: shows you the difference of the files in the staging area. 
 
 - `restore --staged <FILE>`: Unstages <FILE> from the **staging area**.
-
-Here's a change I don't really mean to happen.
-Or is a mistake.
-Or... 
