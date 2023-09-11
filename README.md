@@ -9,3 +9,7 @@
 - `commit`: commit (i.e., snapshot) the files from the staging area.
 
 - Let's make a change!
+
+- `log`: shows the log.
+    - `log --oneline`: shows the log in condensed format.
+    - This may open a terminal program called `less` that lets you **scroll**. Use `q` to quit.
