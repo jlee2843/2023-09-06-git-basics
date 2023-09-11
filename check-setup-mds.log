@@ -1,0 +1,179 @@
+[0;33m# MDS setup check 2023.1[0m
+
+[0;33m## Operating system[0m
+ProductName:		macOS
+ProductVersion:		13.5.1
+BuildVersion:		22G90
+
+[0;33m## System programs[0m
+OK        psql (PostgreSQL) 15.4
+OK        rstudio 2023.06.2+561
+OK        R 4.3.1 (2023-06-16) -- "Beagle Scouts"
+OK        python 3.11.4
+OK        conda 23
+OK        bash 3.2.57(1)-release (x86_64-apple-darwin22)
+OK        git 2.39.2 (Apple Git-143)
+OK        make 3.81
+OK        latex 3.141592653-2.6-1.40.25 (TeX Live 2023)
+OK        tlmgr 5:21 +0200)
+OK        docker 24.0.5, build ced0996
+OK        code 1.80.1
+
+[0;33m## Python packages[0m
+OK        otter-grader=5.1.3
+OK        pandas=2.0.0
+OK        nbconvert-core=7.8.0
+OK        playwright=1.37.0
+OK        jupyterlab=4.0.5
+OK        jupyterlab-git=0.41.0
+OK        jupyterlab-spellchecker=0.8.4
+OK        jupyterlab PDF-generation was successful.
+OK        jupyterlab WebPDF-generation was successful.
+OK        jupyterlab HTML-generation was successful.
+
+[0;33m## R packages[0m
+OK        tidyverse=2.0.0
+OK        markdown=1.8
+OK        rmarkdown=2.24
+OK        renv=1.0.2
+OK        IRkernel=1.3.2
+OK        tinytex=0.46
+OK        janitor=2.2.0
+OK        gapminder=1.0.0
+OK        readxl=1.4.3
+OK        ottr=1.1.3
+OK        canlang=0.0.1
+OK        rmarkdown PDF-generation was successful.
+OK        rmarkdown HTML-generation was successful.
+
+[0;33m## Environmental variables[0m
+GIT_PS1_SHOWDIRTYSTATE=1
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+SHELL=/bin/bash
+CLICOLOR=1
+TMPDIR=/var/folders/c5/pphx1c0n3lb12sy85_ybqxqm0000gn/T/
+CONDA_SHLVL=1
+TERM_PROGRAM_VERSION=447
+CONDA_PROMPT_MODIFIER=(base) 
+TERM_SESSION_ID=A8C81F35-4A1C-41CD-A7C6-575E8ED81680
+USER=jennylee
+CONDA_EXE=/Users/jennylee/miniconda3/bin/conda
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.zqCOyowak8/Listeners
+BASH_SILENCE_DEPRECATION_WARNING=1
+_CE_CONDA=
+LSCOLORS=ExGxFxdxCxDxDxxbaDecac
+PATH=/Users/jennylee/.cargo/bin:/Users/jennylee/miniconda3/bin:/Users/jennylee/miniconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/Users/jennylee/.rbenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Applications/quarto/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+__CFBundleIdentifier=com.apple.Terminal
+CONDA_PREFIX=/Users/jennylee/miniconda3
+PWD=/Users/jennylee/git/2023-09-06-git-basics
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+_CE_M=
+HOME=/Users/jennylee
+SHLVL=2
+LOGNAME=jennylee
+CONDA_PYTHON_EXE=/Users/jennylee/miniconda3/bin/python
+LC_CTYPE=UTF-8
+CONDA_DEFAULT_ENV=base
+DISPLAY=/private/tmp/com.apple.launchd.cn8q9trSHq/org.xquartz:0
+_=/usr/bin/env
+
+[0;33m## Content of .bash_profile[0m
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# Setting PATH for Python 3.9
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+export PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jennylee/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jennylee/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jennylee/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jennylee/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+. "$HOME/.cargo/env"
+
+EDITOR="code --wait"
+VISUAL=$EDITOR
+
+# Silence default shell note when launching bash
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Load the git prompt script
+source ~/.git-prompt.sh
+# Show unstaged (*) and staged (+) changes in the prompt string
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+# Color text so it is easier to distinguish elements from each other
+export CLICOLOR=1
+export LSCOLORS=ExGxFxdxCxDxDxxbaDecac
+# Color the prompt string and add git info
+export PS1=${CONDA_PROMPT_MODIFIER}'\[\033[01;32m\]\u@\h\[\033[01;35m\] \w\[\033[34m\]$(__git_ps1 " (%s)")\[\033[00m\]\n\$ '
+
+# TAB completion configuration
+# TAB completion ignores case
+bind "set completion-ignore-case on"
+# Require only one instead of two TAB presses before showing matches
+bind "set show-all-if-ambiguous on"
+# Unfortunately the tab cycling does not work together with single tab match expansion on macOS
+# since bash is too old, so I have commented out the option below,
+# but feel free to remove the leading `#` if you want to test it out.
+# If there are multiple matches for completion, cycle through them with TAB
+# bind 'TAB':menu-complete
+
+# History configuration
+# Cycle through history based on characters already typed on the line
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+# Append to the history file, don't overwrite it.
+shopt -s histappend
+# Write commands to history one-by-one right after they are executed
+# instead of all together when the terminal is closed.
+# Make new terminals see all commands run in currently open terminals and
+# prepend a newline to the prompt string to separate it from the last command's output
+PROMPT_COMMAND='history -a; echo'
+# Increase history size
+HISTSIZE=50000
+HISTFILESIZE=50000
+
+# Aliases and functions
+# Note that aliases only are in effect when you are using the shell interactively
+# (e.g. opening the terminal and typing or pasting commands).
+# If you run a bash script or makefile,
+# the original command is used instead of your alias.
+# ---
+# MDS help script
+alias mds-help='bash ~/.mds-help.sh'
+# Some common operations
+alias l='ls -lthAF'
+alias jl='jupyter lab'
+alias ca='conda activate'
+alias gl='git log --date short -10 --pretty=format:"%C(auto,yellow)%h %C(auto,blue)%ad%C(auto)%d %C(auto,reset)%s"'
+alias gt='git status'
+alias gm='git commit -m'
+alias gap='git add -p'
+# Move, remove, and copy show what was done and prompt before overwriting files.
+alias rm="rm -vi"
+alias mv="mv -vi"
+alias cp="cp -vi"
+alias mkdir="mkdir -vp"
+# Case insensitive grep by default
+alias grep='grep -i'
+
+curl -Sso ~/.mds-help.sh https://raw.githubusercontent.com/UBC-MDS/UBC-MDS.github.io/master/resources_pages/mds-help.sh
+[0;33m## Content of .bashrc[0m
+# Do NOT add anything to this file, use `~/.bash_profile` instead.
+# The next line automatically loads your `~/.bash_profile`
+# any time a program tries to read your `~/.bashrc` file.
+if [ -f ~/.bash_profile ]; then . ~/.bash_profile; fi
