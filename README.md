@@ -1,4 +1,4 @@
-# DSCI 521: Lecture 3 
+# DSCI 521: Lecture 3 + Conflicts
 
 #### Git Command Basics
 - `init`: turns the current folder (working directory) into a Git repository.
@@ -18,5 +18,6 @@
       - `diff --staged`: shows you the difference of the files in the staging area. 
 
 - `restore --staged <FILE>`: Unstages <FILE> from the **staging area**.
-
 -`revert <SHA1 (Hash)>`: undos the changes in the commit specified in SHA1.
+
+- To fix conflicts you need to manually edit the file.
