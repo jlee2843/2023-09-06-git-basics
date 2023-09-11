@@ -1,4 +1,4 @@
-# 2023-09-06-git_basics
+### 2023-09-06-git_basics
 
 #### Git Command Basics
 - `init`: turns the current folder (working directory) into a Git repository.
