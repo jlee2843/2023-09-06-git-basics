@@ -13,3 +13,8 @@
 - `log`: shows the log.
     - `log --oneline`: shows the log in condensed format.
     - This may open a terminal program called `less` that lets you **scroll**. Use `q` to quit.
+
+- `diff`: Shows the difference between your changes and the last known **git status**. 
+      - `diff --staged`: shows you the difference of the files in the staging area. 
+
+- `restore --staged <FILE>`: Unstages <FILE> from the **staging area**.
